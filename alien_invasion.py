@@ -18,11 +18,7 @@ class AlienInvasion:
         """Avvia il ciclo principale del gioco"""
         while True:
             self._check_events()
-
-            self.screen.fill(self.settings.bg_color)
-            self.ship.bitme()
-            # Rende visibile la schermata disegnata più recentemente
-            pygame.display.flip()
+            self._update_screen()
             self.clock.tick(60)
 
     def _check_events(self):
@@ -30,7 +26,11 @@ class AlienInvasion:
         for event in pygame.event.get():
                     if event.type == pygame.QUIT:
                         sys.exit()
-
+    def _update_screen(self):
+        self.screen.fill(self.settings.bg_color)
+        self.ship.bitme()
+        # Rende visibile la schermata disegnata più recentemente
+        pygame.display.flip()
 
 if __name__ == '__main__':
     ai = AlienInvasion()
