@@ -11,6 +11,11 @@ class Ship:
 
         # Avvia ogni nuova nave in fondo allo schermo, al centro
         self.rect.midbottom = self.screen_rect.midbottom
+        self.moving_right = False
+    
+    def update(self):
+        if self.moving_right:
+            self.rect.x += 1
 
     def bitme(self):
         self.screen.blit(self.image,self.rect)
